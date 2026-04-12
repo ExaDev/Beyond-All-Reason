@@ -8,6 +8,7 @@
       "duplicate-set-field"
     ],
     "globals": [
+      "BAR",
       "Turn",
       "Move",
       "Spin",

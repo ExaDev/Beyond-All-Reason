@@ -43,6 +43,9 @@ local commonFunctions = {
 	},
 }
 
+-- BAR-added modules live under the BAR namespace, detached from the Spring table.
+BAR = BAR or {}
+
 if commonFunctions.spring[environment] then
 	local springFunctions = VFS.Include("common/springFunctions.lua")
 	Spring.Utilities = Spring.Utilities or springFunctions.Utilities

@@ -48,6 +48,9 @@ _G.unpack = _G.unpack or table.unpack or function(t, i, j)
 	return t[i], _G.unpack(t, i + 1, j)
 end
 
+-- BAR namespace for detached modules; spec builders populate BAR.Utilities etc.
+_G.BAR = _G.BAR or {}
+
 -- VFS.Include mock for testing
 _G.VFS = _G.VFS or {}
 _G.VFS._cache = _G.VFS._cache or {}
