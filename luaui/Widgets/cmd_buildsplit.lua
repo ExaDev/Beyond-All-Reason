@@ -72,7 +72,7 @@ function widget:Initialize()
 	widgetHandler:AddAction("buildsplit", handleSetModifier, { true }, "p")
 	widgetHandler:AddAction("buildsplit", handleSetModifier, { false }, "r")
 
-	WG["build_split"] = {
+	WG.build_split = {
 		isActive = function()
 			return activeModifier
 		end,
@@ -121,7 +121,7 @@ function widget:Update()
 		local uDef = UnitDefs[uDefID]
 		if uDef and uDef.buildOptions and #uDef.buildOptions > 0 then
 			for _, uID in ipairs(uIDs) do
-				local builderInfo = WG["api_build_orders"].getBuilderInfo(uID)
+				local builderInfo = WG.api_build_orders.getBuilderInfo(uID)
 				if builderInfo then
 					table.insert(builders, builderInfo)
 				end
@@ -139,11 +139,11 @@ function widget:Update()
 		})
 	end
 
-	WG["api_build_orders"].splitBuildOrders(builders, buildings, { "shift" })
+	WG.api_build_orders.splitBuildOrders(builders, buildings, { "shift" })
 
 	buildCount = 0
 end
 
 function widget:Shutdown()
-	WG["build_split"] = nil
+	WG.build_split = nil
 end

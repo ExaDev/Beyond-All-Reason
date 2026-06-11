@@ -112,8 +112,8 @@ local function initGL4()
 	return true
 end
 
-WG["unitfirestate"] = {}
-WG["unitfirestate"].setEnabled = function(value)
+WG.unitfirestate = {}
+WG.unitfirestate.setEnabled = function(value)
 	showFireStateIcons = value
 end
 
@@ -184,8 +184,8 @@ function widget:Initialize()
 		end
 	end
 
-	if WG["unittrackerapi"] and WG["unittrackerapi"].visibleUnits then
-		widget:VisibleUnitsChanged(WG["unittrackerapi"].visibleUnits, nil)
+	if WG.unittrackerapi and WG.unittrackerapi.visibleUnits then
+		widget:VisibleUnitsChanged(WG.unittrackerapi.visibleUnits, nil)
 	end
 end
 
