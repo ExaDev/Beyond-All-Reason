@@ -16,22 +16,22 @@ function gadget:GetInfo()
 	}
 end
 
-local spAreTeamsAllied = Spring.AreTeamsAllied
-local spGetMyAllyTeamID = Spring.GetLocalAllyTeamID
-local spGetSpectatingState = Spring.GetSpectatingState
-local spGetUnitLosState = Spring.GetUnitLosState
+local spAreTeamsAllied = Engine.Shared.AreTeamsAllied
+local spGetMyAllyTeamID = Engine.Unsynced.GetLocalAllyTeamID
+local spGetSpectatingState = Engine.Unsynced.GetSpectatingState
+local spGetUnitLosState = Engine.Shared.GetUnitLosState
 
 local myAllyTeamID, myTeamID, spec, specFullView
 
 function gadget:Initialize()
-	myTeamID = Spring.GetLocalTeamID()
-	myAllyTeamID = Spring.GetLocalAllyTeamID()
+	myTeamID = Engine.Unsynced.GetLocalTeamID()
+	myAllyTeamID = Engine.Unsynced.GetLocalAllyTeamID()
 	spec, specFullView = spGetSpectatingState()
 end
 
 function gadget:PlayerChanged()
-	myTeamID = Spring.GetLocalTeamID()
-	myAllyTeamID = Spring.GetLocalAllyTeamID()
+	myTeamID = Engine.Unsynced.GetLocalTeamID()
+	myAllyTeamID = Engine.Unsynced.GetLocalAllyTeamID()
 	spec, specFullView = spGetSpectatingState()
 end
 

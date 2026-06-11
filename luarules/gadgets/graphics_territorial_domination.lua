@@ -11,7 +11,7 @@ function gadget:GetInfo()
 	}
 end
 
-local modOptions = Spring.GetModOptions()
+local modOptions = Engine.Shared.GetModOptions()
 local isSynced = gadgetHandler:IsSyncedCode()
 if modOptions.deathmode ~= "territorial_domination" or isSynced then
 	return false
@@ -57,19 +57,19 @@ local notifyFrames = {}
 local currentFrame = 0
 local lastMoveFrame = 0
 
-local myAllyID = Spring.GetLocalAllyTeamID()
-local gaiaAllyTeamID = select(6, Spring.GetTeamInfo(Spring.GetGaiaTeamID()))
-local allTeams = Spring.GetTeamList()
-local amSpectating = Spring.GetSpectatingState()
+local myAllyID = Engine.Unsynced.GetLocalAllyTeamID()
+local gaiaAllyTeamID = select(6, Engine.Shared.GetTeamInfo(Engine.Shared.GetGaiaTeamID()))
+local allTeams = Engine.Shared.GetTeamList()
+local amSpectating = Engine.Unsynced.GetSpectatingState()
 local previousAllyID = nil
 local allyColors = {}
 
 local blankColor = { 0.5, 0.5, 0.5, 0.0 }
 
-local spIsGUIHidden = Spring.IsGUIHidden
+local spIsGUIHidden = Engine.Unsynced.IsGUIHidden
 local glDepthTest = gl.DepthTest
 local glTexture = gl.Texture
-local spPlaySoundFile = Spring.PlaySoundFile
+local spPlaySoundFile = Engine.Unsynced.PlaySoundFile
 
 local planeLayout = {
 	{ id = 1, name = "posscale", size = 4 }, -- a vec4 for pos + scale
@@ -275,10 +275,10 @@ void main() {
 
 local function initializeAllyColors()
 	for _, teamID in ipairs(allTeams) do
-		local allyID = select(6, Spring.GetTeamInfo(teamID))
+		local allyID = select(6, Engine.Shared.GetTeamInfo(teamID))
 		if allyID and not allyColors[allyID] then
 			if allyID ~= gaiaAllyTeamID then
-				local r, g, b, a = Spring.GetTeamColor(teamID)
+				local r, g, b, a = Engine.Unsynced.GetTeamColor(teamID)
 				allyColors[allyID] = { r, g, b, SQUARE_ALPHA }
 			else
 				allyColors[allyID] = blankColor
@@ -291,7 +291,7 @@ local function getMaxCameraHeight()
 	local mapSizeX = Game.mapSizeX
 	local mapSizeZ = Game.mapSizeZ
 	local fallbackMaxFactor = 1.4 --to handle all camera modes
-	local maxFactor = Spring.GetConfigFloat("OverheadMaxHeightFactor", fallbackMaxFactor)
+	local maxFactor = Engine.Unsynced.GetConfigFloat("OverheadMaxHeightFactor", fallbackMaxFactor)
 	local absoluteMinimum = 500
 	local minimumFactor = 0.8
 	local reductionFactor = 0.8
@@ -330,7 +330,7 @@ local function createShader()
 
 	local shaderCompiled = squareShader:Initialize()
 	if not shaderCompiled then
-		Spring.Echo("Failed to compile territory square shader")
+		Engine.Shared.Echo("Failed to compile territory square shader")
 		return false
 	end
 	return true
@@ -454,8 +454,8 @@ function gadget:Initialize()
 		return
 	end
 
-	amSpectating = Spring.GetSpectatingState()
-	myAllyID = Spring.GetLocalAllyTeamID()
+	amSpectating = Engine.Unsynced.GetSpectatingState()
+	myAllyID = Engine.Unsynced.GetLocalAllyTeamID()
 	initializeAllyColors()
 
 	cameraHeightUpdateNeeded = true
@@ -499,8 +499,8 @@ local function updateGridSquareColor(gridData)
 end
 
 local function processSpectatorModeChange()
-	local currentSpectating = Spring.GetSpectatingState()
-	local currentAllyID = Spring.GetLocalAllyTeamID()
+	local currentSpectating = Engine.Unsynced.GetSpectatingState()
+	local currentAllyID = Engine.Unsynced.GetLocalAllyTeamID()
 
 	if currentSpectating ~= amSpectating or (previousAllyID and currentAllyID ~= previousAllyID) then
 		amSpectating = currentSpectating

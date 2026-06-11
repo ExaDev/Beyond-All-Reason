@@ -13,7 +13,7 @@ function widget:GetInfo()
 end
 
 -- Localized Spring API for performance
-local spGetMyTeamID = Spring.GetLocalTeamID
+local spGetMyTeamID = Engine.Unsynced.GetLocalTeamID
 
 local CMD_STOP = CMD.STOP
 local myTeamID = spGetMyTeamID()
@@ -33,7 +33,7 @@ function widget:UnitCommand(unitID, unitDefID, teamID, cmdID, cmdParams, cmdOpti
 		return
 	end
 
-	if Spring.GetUnitSelfDTime(unitID) > 0 then
-		Spring.GiveOrderToUnit(unitID, CMD.SELFD, {}, 0)
+	if Engine.Shared.GetUnitSelfDTime(unitID) > 0 then
+		Engine.Shared.GiveOrderToUnit(unitID, CMD.SELFD, {}, 0)
 	end
 end

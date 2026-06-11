@@ -1,5 +1,5 @@
 local function skip()
-	return Spring.GetGameFrame() > 0
+	return Engine.Shared.GetGameFrame() > 0
 end
 
 local function setup()
@@ -14,9 +14,9 @@ local function setup()
 	WG["pregame-build"].setBuildQueue({})
 	WG["pregame-build"].setPreGamestartDefID(nil)
 
-	initialCameraState = Spring.GetCameraState()
+	initialCameraState = Engine.Unsynced.GetCameraState()
 
-	Spring.SetCameraState({
+	Engine.Unsynced.SetCameraState({
 		mode = 5,
 	})
 
@@ -30,7 +30,7 @@ local function cleanup()
 	WG["pregame-build"].setBuildQueue({})
 	WG["pregame-build"].setPreGamestartDefID(nil)
 
-	Spring.SetCameraState(initialCameraState)
+	Engine.Unsynced.SetCameraState(initialCameraState)
 end
 
 local function test()
@@ -50,8 +50,8 @@ local function test()
 
 	-- Place a mex off of a mex spot - expect mex snap to position it on the spot, as close as possible to cursor position
 	WG["pregame-build"].setPreGamestartDefID(mexUnitDefId)
-	sx, sy, sz = Spring.WorldToScreenCoords(targetMex.x - 200, targetMex.y, targetMex.z - 200)
-	Spring.WarpMouse(sx, sy)
+	sx, sy, sz = Engine.Unsynced.WorldToScreenCoords(targetMex.x - 200, targetMex.y, targetMex.z - 200)
+	Engine.Unsynced.WarpMouse(sx, sy)
 
 	-- wait for widgets to respond
 	Test.waitTime(10)

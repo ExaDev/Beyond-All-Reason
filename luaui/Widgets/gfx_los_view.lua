@@ -13,21 +13,21 @@ function widget:GetInfo()
 end
 
 -- Localized Spring API for performance
-local spGetGameFrame = Spring.GetGameFrame
-local spGetSpectatingState = Spring.GetSpectatingState
+local spGetGameFrame = Engine.Shared.GetGameFrame
+local spGetSpectatingState = Engine.Unsynced.GetSpectatingState
 
-local myPlayerID = Spring.GetLocalPlayerID()
-local lastMapDrawMode = Spring.GetMapDrawMode()
+local myPlayerID = Engine.Unsynced.GetLocalPlayerID()
+local lastMapDrawMode = Engine.Unsynced.GetMapDrawMode()
 
 local function TurnOnLOS()
-	if Spring.GetMapDrawMode() ~= "los" then
-		Spring.SendCommands("togglelos")
+	if Engine.Unsynced.GetMapDrawMode() ~= "los" then
+		Engine.Unsynced.SendCommands("togglelos")
 	end
 end
 
 local function TurnOffLOS()
-	if Spring.GetMapDrawMode() == "los" then
-		Spring.SendCommands("togglelos")
+	if Engine.Unsynced.GetMapDrawMode() == "los" then
+		Engine.Unsynced.SendCommands("togglelos")
 	end
 end
 
@@ -43,7 +43,7 @@ local gamestarted = false
 function widget:GameFrame(frame) -- somehow widget:GameStart() didnt work
 	if frame == 1 and not gamestarted then
 		gamestarted = true
-		myPlayerID = Spring.GetLocalPlayerID()
+		myPlayerID = Engine.Unsynced.GetLocalPlayerID()
 		if spGetSpectatingState() then
 			TurnOffLOS()
 		else
@@ -53,7 +53,7 @@ function widget:GameFrame(frame) -- somehow widget:GameStart() didnt work
 end
 
 function widget:Shutdown()
-	lastMapDrawMode = Spring.GetMapDrawMode()
+	lastMapDrawMode = Engine.Unsynced.GetMapDrawMode()
 	TurnOffLOS()
 end
 

@@ -13,7 +13,7 @@ function widget:GetInfo()
 end
 
 -- Localized Spring API for performance
-local spEcho = Spring.Echo
+local spEcho = Engine.Shared.Echo
 
 --------------------------------------------------------------------------------
 --- TODO:
@@ -61,11 +61,11 @@ local losViewShaderSourceCache = {
 }
 
 function widget:PlayerChanged(playerID)
-	currentAllyTeam = Spring.GetLocalAllyTeamID()
+	currentAllyTeam = Engine.Unsynced.GetLocalAllyTeamID()
 end
 
 function widget:ViewResize()
-	vsx, vsy, vpx, vpy = Spring.GetViewGeometry()
+	vsx, vsy, vpx, vpy = Engine.Unsynced.GetViewGeometry()
 	if ScreenCopyTexture then
 		gl.DeleteTexture(ScreenCopyTexture)
 	end
