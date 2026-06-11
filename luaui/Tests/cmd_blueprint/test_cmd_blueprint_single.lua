@@ -50,6 +50,7 @@ local function test()
 
 	widget:CommandNotify(GameCMD.BLUEPRINT_CREATE, {}, {})
 
+	---@diagnostic disable-next-line: undefined-global
 	assertEqual(#widget.blueprints, 1)
 
 	Test.clearMap()
@@ -79,6 +80,8 @@ local function test()
 
 	local builderQueue = Engine.Shared.GetUnitCommands(builderUnitID, -1)
 
+	---@diagnostic disable-next-line: undefined-global
 	assertEqual(#builderQueue, 1)
+	---@diagnostic disable-next-line: undefined-global
 	assertEqual(builderQueue[1].id, -blueprintUnitDefID)
 end

@@ -160,22 +160,28 @@ end
 local function testAssertEqual()
 	-- test numeric mismatch
 	assertThrowsMessage(function()
+		---@diagnostic disable-next-line: undefined-global
 		assertEqual(1, 2)
 	end, "assertEqual failed: expected 2, actual 1")
 
 	-- test string mismatch
 	assertThrowsMessage(function()
+		---@diagnostic disable-next-line: undefined-global
 		assertEqual("a", "b")
 	end, 'assertEqual failed: expected "b", actual "a"')
 
 	-- test numeric vs string mismatch
 	assertThrowsMessage(function()
+		---@diagnostic disable-next-line: undefined-global
 		assertEqual(0, "0")
 	end, 'assertEqual failed: expected "0", actual 0')
 
 	-- test success cases
+	---@diagnostic disable-next-line: undefined-global
 	assertEqual(1, 1)
+	---@diagnostic disable-next-line: undefined-global
 	assertEqual("hello", "hello")
+	---@diagnostic disable-next-line: undefined-global
 	assertEqual(nil, nil)
 end
 

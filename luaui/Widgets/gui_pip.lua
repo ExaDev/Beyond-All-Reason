@@ -46,6 +46,7 @@ end
 
 -- Forward declaration (defined after config and cameraState)
 local IsLeftClickPanActive
+local GetAliveTeammates
 
 function widget:GetInfo()
 	return {
@@ -955,6 +956,7 @@ function pipTV.DirectorTick(dt)
 
 	-- Before game start, stay on overview — pre-game map markers shouldn't move the camera
 	-- Note: can't use gameHasStarted (declared later in file), so check gameFrame directly
+	local gameFrame = Engine.Shared.GetGameFrame()
 	if gameFrame == 0 then
 		local offsetX = (pipNumber or 0) * Game.mapSizeX * 0.15
 		local overviewX = math.min(Game.mapSizeX * 0.85, Game.mapSizeX / 2 + offsetX)
@@ -965,7 +967,6 @@ function pipTV.DirectorTick(dt)
 	-- Time factor: 0→1 over first 2 minutes (baseline)
 	-- Activity factor: 0→1 as peak hotspot weight reaches combat levels (~10+)
 	-- Use whichever is higher — so early fights on small maps instantly ramp up
-	local gameFrame = Engine.Shared.GetGameFrame()
 	local timeFactor = math.min(1, gameFrame / (30 * 60 * 2)) -- 0→1 over 2 minutes
 
 	-- Track peak activity across all current hotspots
@@ -4429,7 +4430,7 @@ local function GetPlayerSkill(playerID)
 end
 
 -- Helper function to get alive teammates (excluding self and AI)
-local function GetAliveTeammates()
+function GetAliveTeammates()
 	local myPlayerID = Engine.Unsynced.GetLocalPlayerID()
 	local _, _, _, myTeamID = spFunc.GetPlayerInfo(myPlayerID, false)
 	if not myTeamID then
@@ -4787,7 +4788,7 @@ local function DrawFeature(fID, noTextures)
 	end
 
 	-- Skip energy-only features if option is enabled
-	if hideEnergyOnlyFeatures then
+	if config.hideEnergyOnlyFeatures then
 		local fDef = FeatureDefs[fDefID]
 		if fDef and (not fDef.metal or fDef.metal <= 0) and fDef.energy and fDef.energy > 0 then
 			return

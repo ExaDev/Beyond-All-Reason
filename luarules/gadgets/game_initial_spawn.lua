@@ -681,6 +681,7 @@ if gadgetHandler:IsSyncedCode() then
 	end
 
 	local lastGameFrame = 0
+	local scenarioSpawnsUnits = false
 	function gadget:GameFrame(n)
 		if not scenarioSpawnsUnits then
 			if n == spawnInitialFrame then

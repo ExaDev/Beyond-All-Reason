@@ -30,6 +30,7 @@ local config = {
 local waterLevel = Engine.Shared.GetWaterPlaneLevel and Engine.Shared.GetWaterPlaneLevel() or 0
 
 local cmdShowForUnitDefID
+local isSpec = Engine.Unsynced.GetSpectatingState()
 local isPregame = Engine.Shared.GetGameFrame() == 0 and not isSpec
 
 local gridVBO = nil -- the vertex buffer object, an array of vec2 coords

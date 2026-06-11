@@ -31,6 +31,7 @@ local spGetTimer = Engine.Unsynced.GetTimer
 local spDiffTimers = Engine.Unsynced.DiffTimers
 ---------------------------Internal vars---------------------------
 local timerstart = nil
+local alpha = 0
 ----------------------------GL4 vars----------------------------
 
 local rectShader = nil
@@ -303,11 +304,12 @@ function widget:DrawScreen()
 ]]
 	--#region
 
+	local lastframeduration = 0
 	for i = 1, #eventBuffer do
 		local event = eventBuffer[i]
 		local frametype = event[1]
 		local lastframetime = event[2]
-		local lastframeduration = event[3]
+		lastframeduration = event[3]
 
 		rectInstancePtr = rectInstancePtr + 1
 		if rectInstancePtr >= maxframes then

@@ -179,6 +179,7 @@ function widget:VisibleUnitsChanged(extVisibleUnits, extNumVisibleUnits)
 end
 
 function widget:VisibleUnitRemoved(unitID) -- remove the corresponding ground plate if it exists
+	local reason = "VisibleUnitRemoved"
 	if debugmode then
 		BAR.Debug.TraceEcho("remove", unitID, reason)
 	end

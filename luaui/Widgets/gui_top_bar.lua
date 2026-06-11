@@ -212,7 +212,7 @@ end
 local draggingShareIndicatorValue = {}
 local draggingConversionIndicatorValue, draggingShareIndicator, draggingConversionIndicator
 local conversionIndicatorArea, quitscreenArea, quitscreenStayArea, quitscreenQuitArea, quitscreenResignArea, quitscreenTeamResignArea, hoveringTopbar, hideQuitWindow
-local font, font2, firstButton, fontSize, comcountChanged, showQuitscreen, resbarHover, teamResign
+local font, font2, firstButton, fontSize, comcountChanged, showQuitscreen, resbarHover, teamResign, mb
 
 -- Audio
 local playSounds = true

@@ -52,6 +52,7 @@ function DamageHST:AddBadPosition(position, mtype, attackerThreat, defenderThrea
 	local f = self.game:Frame()
 	--for groundAirSubmerged, yes in pairs(gas) do
 	--	if yes then
+	local groundAirSubmerged = nil
 	local newRecord = {
 		X = X,
 		Z = Z,

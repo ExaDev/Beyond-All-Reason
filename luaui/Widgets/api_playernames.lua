@@ -19,6 +19,7 @@ local tableInsert = table.insert
 local spEcho = Engine.Shared.Echo
 
 local applyFirstEncounteredName = false
+local falses = false
 local maxHistorySize = 3000 -- max number of accounts in history
 local maxNamesSize = 4500 -- max number of names in history
 local cleanupAmount = 300

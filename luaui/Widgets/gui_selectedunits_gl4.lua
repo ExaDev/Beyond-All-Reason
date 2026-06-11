@@ -516,7 +516,7 @@ function widget:Initialize()
 		init()
 	end
 	WG.selectedunits.getMouseoverHighlight = function()
-		return selectimouseoverHighlightonHighlight
+		return mouseoverHighlight
 	end
 
 	Engine.Unsynced.LoadCmdColorsConfig("unitBox  0 1 0 0")

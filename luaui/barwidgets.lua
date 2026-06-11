@@ -1032,7 +1032,7 @@ function widgetHandler:UpdateCallIn(name)
 	if name == "Update" or name == "DrawScreen" then
 		return
 	end
-	if #self[listName] > 0 or not flexCallInMap[name] or (name == "GotChatMsg" and actionHandler.HaveChatAction()) or (name == "RecvFromSynced" and actionHandler.HaveSyncAction()) then
+	if #self[listName] > 0 or not flexCallInMap[name] or (name == "GotChatMsg" and self.actionHandler.HaveChatAction()) or (name == "RecvFromSynced" and self.actionHandler.HaveSyncAction()) then
 		-- always assign these call-ins
 		local selffunc = self[name]
 

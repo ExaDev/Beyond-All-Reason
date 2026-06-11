@@ -25,6 +25,7 @@ local spGetViewGeometry = Engine.Unsynced.GetViewGeometry
 
 local fontfile = "fonts/" .. Engine.Unsynced.GetConfigString("bar_font2", "Exo2-SemiBold.otf")
 local vsx, vsy = spGetViewGeometry()
+local msx, msz = Game.mapSizeX, Game.mapSizeZ
 local fontfileScale = (0.5 + (vsx * vsy / 6200000))
 local fontfileSize = 50
 local fontfileOutlineSize = 10

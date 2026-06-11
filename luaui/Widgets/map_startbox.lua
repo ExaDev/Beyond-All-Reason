@@ -23,6 +23,7 @@ local mathAbs = math.abs
 local spGetGameFrame = Engine.Shared.GetGameFrame
 local spGetMyTeamID = Engine.Unsynced.GetLocalTeamID
 local spEcho = Engine.Shared.Echo
+local goodbye = spEcho
 local spGetSpectatingState = Engine.Unsynced.GetSpectatingState
 local spGetTeamList = Engine.Shared.GetTeamList
 local spGetTeamInfo = Engine.Shared.GetTeamInfo

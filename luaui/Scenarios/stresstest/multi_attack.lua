@@ -76,6 +76,7 @@ function run_commands(nattackers, ntargets, attackerDef, targetDef)
 		nattackers = locals.nattackers
 	end
 	local shiftOpts = { "shift" }
+	local opts = nil
 	local currOpt
 	local CMD_ATTACK = CMD.ATTACK
 	local spGiveOrderToUnit = Engine.Shared.GiveOrderToUnit

@@ -528,15 +528,15 @@ end
 
 function widget:LanguageChanged()
 	i18nStrings = {
-		energy = I18N("ui.topbar.resources.energy"):lower(),
-		metal = I18N("ui.topbar.resources.metal"):lower(),
-		everyone = I18N("ui.chat.everyone"),
-		allies = I18N("ui.chat.allies"),
-		spectators = I18N("ui.chat.spectators"),
-		cmd = I18N("ui.chat.cmd"),
-		shortcut = I18N("ui.chat.shortcut"),
-		nohistory = I18N("ui.chat.nohistory"),
-		scroll = I18N("ui.chat.scroll", { textColor = "\255\255\255\255", highlightColor = "\255\255\255\001" }),
+		energy = BAR.I18N("ui.topbar.resources.energy"):lower(),
+		metal = BAR.I18N("ui.topbar.resources.metal"):lower(),
+		everyone = BAR.I18N("ui.chat.everyone"),
+		allies = BAR.I18N("ui.chat.allies"),
+		spectators = BAR.I18N("ui.chat.spectators"),
+		cmd = BAR.I18N("ui.chat.cmd"),
+		shortcut = BAR.I18N("ui.chat.shortcut"),
+		nohistory = BAR.I18N("ui.chat.nohistory"),
+		scroll = BAR.I18N("ui.chat.scroll", { textColor = "\255\255\255\255", highlightColor = "\255\255\255\001" }),
 	}
 	refreshUnitDefs()
 	-- Cache color strings after language change (optimization)

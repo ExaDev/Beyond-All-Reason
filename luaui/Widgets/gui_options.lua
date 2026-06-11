@@ -1232,9 +1232,10 @@ function widget:RecvLuaMsg(msg, playerID)
 end
 
 local showToggledOff = false
+local isClientPaused = false
 local function checkPause()
 	-- pause/unpause when the options/quitscreen interface shows
-	local _, _, isClientPaused, _ = Engine.Unsynced.GetGameState()
+	_, _, isClientPaused, _ = Engine.Unsynced.GetGameState()
 	if not isClientPaused then
 		skipUnpauseOnHide = false
 		skipUnpauseOnLobbyHide = false
@@ -10569,6 +10570,7 @@ function widget:GetConfigData()
 		currentGroupTab = currentGroupTab,
 		show = show,
 		waterDetected = waterDetected,
+		---@diagnostic disable-next-line: undefined-global
 		customPresets = customPresets,
 		changesRequireRestart = changesRequireRestart,
 		requireRestartDefaults = requireRestartDefaults,

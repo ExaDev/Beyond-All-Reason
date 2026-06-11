@@ -1,5 +1,6 @@
 local GL_BUFFER = 0x82E0
 local gldebugannotations = (Engine.Unsynced.GetConfigInt("gldebugannotations") == 1)
+local goodbye = Engine.Shared.Echo
 --Spring.Echo("gldebugannotations", gldebugannotations)
 local function makeInstanceVBOTable(layout, maxElements, myName, unitIDattribID)
 	-- layout: this must be an array of tables with at least the following specified: {{id = 1, name = 'optional', size = 4}}

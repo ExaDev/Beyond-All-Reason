@@ -569,7 +569,7 @@ function widget:GameFrame()
 			Scream("cntvisibleunits ~= numVisibleUnits " .. tostring(cntvisibleunits) .. " vs " .. tostring(numVisibleUnits))
 		end
 
-		if drawdebugvisible then
+		if debugdrawvisible then
 			InstanceVBOTable.locateInvalidUnits(unitTrackerVBO)
 		end
 

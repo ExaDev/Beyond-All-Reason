@@ -58,6 +58,7 @@ function game:GetAllyTeamID()
 end
 
 function game:getUnitsInCylinder(pos, range)
+	local team = nil
 	return Engine.Shared.GetUnitsInCylinder(pos.x, pos.z, range, team)
 end
 

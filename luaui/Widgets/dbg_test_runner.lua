@@ -908,8 +908,10 @@ local function runTestInternal()
 
 	-- always try to run cleanup
 	local cleanupOk, cleanupResult
+	---@diagnostic disable-next-line: undefined-global
 	if cleanup ~= nil then
 		log(LOG.DEBUG, "[runTestInternal.cleanup]")
+		---@diagnostic disable-next-line: undefined-global
 		cleanupOk, cleanupResult = Util.yieldable_pcall(cleanup)
 		log(LOG.DEBUG, "[runTestInternal.cleanup.done] " .. table.toString({
 			cleanupOk,

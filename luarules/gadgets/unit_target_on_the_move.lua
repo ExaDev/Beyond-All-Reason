@@ -53,6 +53,7 @@ if gadgetHandler:IsSyncedCode() then
 	local spGetUnitsInCylinder = Engine.Shared.GetUnitsInCylinder
 	local spSetUnitRulesParam = Engine.Synced.SetUnitRulesParam
 	local spGetUnitCurrentCommand = Engine.Shared.GetUnitCurrentCommand
+	local spGetUnitWeaponTarget = Engine.Shared.GetUnitWeaponTarget
 	local spGetUnitWeaponTryTarget = Engine.Shared.GetUnitWeaponTryTarget
 	local spGetUnitWeaponTestTarget = Engine.Shared.GetUnitWeaponTestTarget
 	local spGetUnitWeaponTestRange = Engine.Shared.GetUnitWeaponTestRange
