@@ -1,0 +1,24 @@
+# gen(stylua): initial formatting of entire codebase
+e0ada9de3f088f62ed8aa4a69e2c1ae957bddc70
+
+# gen(bar_codemod): bracket-to-dot
+ad3a0a654b177028ca8c834bbff0648b7a53b273
+
+# gen(bar_codemod): rename-aliases
+93431c35c8681cb8b24d95457d905d980e94cb1b
+
+# gen(bar_codemod): detach-bar-modules
+cf26d6dc60ba8298801b74f7c44b7c877591ce38
+
+# gen(bar_codemod): i18n-kikito
+bba41b27eebcaa2569ab255ef39ba76b72522266
+
+# gen(bar_codemod): spring-split
+6306d38241d0f5ba1fb8db6b3f8e6f9c1902fd69
+
+# gen(hand): integration tests return-table shape
+6306d38241d0f5ba1fb8db6b3f8e6f9c1902fd69
+
+# gen(hand): inline luassert and busted LuaCATS types
+6306d38241d0f5ba1fb8db6b3f8e6f9c1902fd69
+
