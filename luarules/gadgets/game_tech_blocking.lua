@@ -39,11 +39,11 @@ local techCoreValueDefs = {}
 local ignoredTeams = {
 	[Spring.GetGaiaTeamID()] = true,
 }
-local scavTeamID = Spring.Utilities.GetScavTeamID()
+local scavTeamID = BAR.Utilities.GetScavTeamID()
 if scavTeamID then
 	ignoredTeams[scavTeamID] = true
 end
-local raptorTeamID = Spring.Utilities.GetRaptorTeamID()
+local raptorTeamID = BAR.Utilities.GetRaptorTeamID()
 if raptorTeamID then
 	ignoredTeams[raptorTeamID] = true
 end

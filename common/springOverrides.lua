@@ -38,7 +38,7 @@ if Spring.GetModOptions then
 	-- Returns a copy of the modOptions table. Slower, but allows iterating over
 	-- the returned table using pairs/ipairs.
 	BAR = BAR or {}
-	Spring.GetModOptionsCopy = function()
+	BAR.GetModOptionsCopy = function()
 		return table.copy(modOptions)
 	end
 end
