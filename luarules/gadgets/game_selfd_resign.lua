@@ -133,8 +133,8 @@ if gadgetHandler:IsSyncedCode() then
 		return true
 	end
 else -- UNSYNCED
-	local myPlayerID = Spring.GetMyPlayerID()
-	local myTeamID = Spring.GetMyTeamID()
+	local myPlayerID = Spring.GetLocalPlayerID()
+	local myTeamID = Spring.GetLocalTeamID()
 	local gaiaTeamID = Spring.GetGaiaTeamID()
 	local gaiaAllyTeamID = select(6, Spring.GetTeamInfo(gaiaTeamID, false))
 	local spGetTeamList = Spring.GetTeamList

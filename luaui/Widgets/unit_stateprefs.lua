@@ -187,7 +187,7 @@ function widget:UnitFinished(unitID, unitDefID, unitTeam)
 	local name = unitName[unitDefID]
 
 	unitSet[name] = unitSet[unitName[unitDefID]] or {}
-	if unitTeam == Spring.GetMyTeamID() then
+	if unitTeam == Spring.GetLocalTeamID() then
 		for cmdID, cmdParam in pairs(unitSet[name]) do
 			if cmdID == 115 then
 				return
@@ -198,7 +198,7 @@ function widget:UnitFinished(unitID, unitDefID, unitTeam)
 end
 
 local function ApplyUnitStates()
-	local teamID = (not spectatingState) and Spring.GetMyTeamID()
+	local teamID = (not spectatingState) and Spring.GetLocalTeamID()
 	local units = (teamID and Spring.GetTeamUnits(teamID)) or Spring.GetAllUnits()
 	if units then
 		for i = 1, #units do
